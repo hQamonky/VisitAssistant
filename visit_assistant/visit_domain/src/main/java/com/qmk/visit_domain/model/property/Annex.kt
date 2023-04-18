@@ -2,7 +2,7 @@ package com.qmk.visit_domain.model.property
 
 data class Annex(
     val surface: Int?,
-    val type: AnnexType
+    val type: AnnexType?
 )
 
 enum class AnnexType {

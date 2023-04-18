@@ -4,20 +4,20 @@ import com.qmk.visit_domain.model.Condition
 import com.qmk.visit_domain.model.Orientation
 
 data class Opening(
-    val type: OpeningType,
+    val openingType: OpeningType?,
     val orientation: Orientation?,
     val vue: VueType?,
-    val openingCondition: Condition,
-    val frameCondition: Condition,
-    val lockerAndHandleCondition: Condition,
+    val openingCondition: Condition?,
+    val frameCondition: Condition?,
+    val lockerAndHandleCondition: Condition?,
     val shutters: Shutter?,
-    val media: List<String>,
-    val notes: String
+    val media: List<String>?,
+    val notes: String?
 )
 
 data class Shutter(
-    val type: ShutterType,
-    val condition: Condition
+    val type: ShutterType?,
+    val condition: Condition?
 )
 
 enum class ShutterType {

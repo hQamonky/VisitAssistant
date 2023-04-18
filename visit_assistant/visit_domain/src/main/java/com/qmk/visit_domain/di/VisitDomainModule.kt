@@ -18,8 +18,7 @@ object VisitDomainModule {
     ): PropertyUseCases {
         return PropertyUseCases(
             getProperties = GetProperties(repository),
-            createProperty = CreateProperty(repository),
-            updateProperty = UpdateProperty(repository),
+            insertProperty = InsertProperty(repository),
             deleteProperty = DeleteProperty(repository)
         )
     }

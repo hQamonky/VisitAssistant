@@ -1,16 +1,16 @@
 package com.qmk.visit_domain.model.room
 
 data class Room(
-    val surface: Int?,
-    val width: Int?,
-    val length: Int?,
-    val type: RoomType,
-    val openings: List<Opening>?,
-    val walls: Wall?,
-    val ceiling: Ceiling?,
-    val floor: Floor?,
-    val media: List<String>,
-    val notes: String
+    val surface: Int? = null,
+    val width: Int? = null,
+    val length: Int? = null,
+    val type: RoomType? = null,
+    val openings: List<Opening>? = null,
+    val walls: Wall? = null,
+    val ceiling: Ceiling? = null,
+    val floor: Floor? = null,
+    val media: List<String>? = null,
+    val notes: String? = null
 )
 
 enum class RoomType{
