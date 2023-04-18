@@ -15,6 +15,7 @@ dependencyResolutionManagement {
 rootProject.name = "Visit Assistant"
 include ':app'
 include ':visit_assistant'
-include ':visit_assistant:visit_domain'
 include ':visit_assistant:visit_presentation'
-include ':visit_assistant:visit_data'
+include ':property'
+include ':property:property_domain'
+include ':property:property_data'
