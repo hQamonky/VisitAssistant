@@ -4,6 +4,7 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
+import com.qmk.property_domain.model.contact.Contact
 
 @Entity
 data class PropertyEntity(
@@ -24,7 +25,8 @@ data class PropertyEntity(
     var lift: Boolean? = null,
     var condominiumFees: Int? = null,
     var floors: Int? = null,
-    var landSurface: Int? = null
+    var landSurface: Int? = null,
+    @Ignore var contacts: List<ContactEntity>? = null
 )
 
 enum class PropertyType {

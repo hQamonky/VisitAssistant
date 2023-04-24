@@ -2,6 +2,7 @@ package com.qmk.property_domain.model.property
 
 import com.qmk.property_domain.model.Location
 import com.qmk.property_domain.model.Orientation
+import com.qmk.property_domain.model.contact.Contact
 import com.qmk.property_domain.model.room.Room
 
 interface Property {
@@ -16,4 +17,5 @@ interface Property {
     val propertyTax: Int?
     val media: List<String>?
     val notes: String?
+    val contacts: List<Contact>?
 }

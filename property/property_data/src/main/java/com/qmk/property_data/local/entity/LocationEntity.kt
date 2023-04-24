@@ -7,6 +7,12 @@ import androidx.room.PrimaryKey
 @Entity
 data class LocationEntity(
     @PrimaryKey var locationId: Int? = null,
-    var address: String? = null,
-    @Embedded var neighborhood: NeighborhoodEntity? = null
+    val streetNumber: Int? = null,
+    val streetName: String? = null,
+    @Embedded var neighborhood: NeighborhoodEntity? = null,
+    val postalCode: String? = null,
+    val city: String? = null,
+    val country: String? = null,
+    val latitude: Double? = null,
+    val longitude: Double? = null
 )

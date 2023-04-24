@@ -16,13 +16,19 @@ fun PropertyEntity.toProperty(): Property? {
             location = location?.let { locationEntity ->
                 Location(
                     id = locationEntity.locationId,
-                    address = locationEntity.address,
+                    streetNumber = locationEntity.streetNumber,
+                    streetName = locationEntity.streetName,
                     neighborhood = locationEntity.neighborhood?.let { neighborhoodEntity ->
                         Neighborhood(
                             name = neighborhoodEntity.name,
                             averagePricePerSquareMeter = neighborhoodEntity.averagePricePerSquareMeter
                         )
-                    }
+                    },
+                    postalCode = locationEntity.postalCode,
+                    city = locationEntity.city,
+                    country = locationEntity.country,
+                    latitude = locationEntity.latitude,
+                    longitude = locationEntity.longitude
                 )
             },
             surface = surface,
@@ -44,13 +50,19 @@ fun PropertyEntity.toProperty(): Property? {
             location = location?.let { locationEntity ->
                 Location(
                     id = locationEntity.locationId,
-                    address = locationEntity.address,
+                    streetNumber = locationEntity.streetNumber,
+                    streetName = locationEntity.streetName,
                     neighborhood = locationEntity.neighborhood?.let { neighborhoodEntity ->
                         Neighborhood(
                             name = neighborhoodEntity.name,
                             averagePricePerSquareMeter = neighborhoodEntity.averagePricePerSquareMeter
                         )
-                    }
+                    },
+                    postalCode = locationEntity.postalCode,
+                    city = locationEntity.city,
+                    country = locationEntity.country,
+                    latitude = locationEntity.latitude,
+                    longitude = locationEntity.longitude
                 )
             },
             surface = surface,
@@ -83,13 +95,20 @@ fun Property.toEntity(): PropertyEntity {
             marketPrice = marketPrice,
             location = location?.let {
                 LocationEntity(
-                    address = it.address,
+                    locationId = it.id,
+                    streetNumber = it.streetNumber,
+                    streetName = it.streetName,
                     neighborhood = it.neighborhood?.let { neighborhood ->
                         NeighborhoodEntity(
                             name = neighborhood.name,
                             averagePricePerSquareMeter = neighborhood.averagePricePerSquareMeter
                         )
-                    }
+                    },
+                    postalCode = it.postalCode,
+                    city = it.city,
+                    country = it.country,
+                    latitude = it.latitude,
+                    longitude = it.longitude
                 )
             },
             surface = surface,
@@ -113,13 +132,20 @@ fun Property.toEntity(): PropertyEntity {
             marketPrice = marketPrice,
             location = location?.let {
                 LocationEntity(
-                    address = it.address,
+                    locationId = it.id,
+                    streetNumber = it.streetNumber,
+                    streetName = it.streetName,
                     neighborhood = it.neighborhood?.let { neighborhood ->
                         NeighborhoodEntity(
                             name = neighborhood.name,
                             averagePricePerSquareMeter = neighborhood.averagePricePerSquareMeter
                         )
-                    }
+                    },
+                    postalCode = it.postalCode,
+                    city = it.city,
+                    country = it.country,
+                    latitude = it.latitude,
+                    longitude = it.longitude
                 )
             },
             surface = surface,
