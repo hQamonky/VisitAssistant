@@ -13,10 +13,12 @@ import com.qmk.property_data.local.entity.*
         RoomEntity::class,
         AnnexEntity::class,
         OpeningEntity::class,
-               ],
+        ContactEntity::class,
+        AgencyEntity::class,
+    ],
     version = 1
 )
 @TypeConverters(Converters::class)
-abstract class PropertyDatabase: RoomDatabase() {
+abstract class PropertyDatabase : RoomDatabase() {
     abstract val dao: PropertyDao
 }

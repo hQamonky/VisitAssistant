@@ -1,9 +1,9 @@
-package com.qmk.property_domain.use_case
+package com.qmk.property_domain.use_case.property
 
 import com.qmk.property_domain.model.property.Property
 import com.qmk.property_domain.repository.PropertyRepository
 
-class InsertProperty(
+class InsertPropertyUseCase(
     private val repository: PropertyRepository
 ) {
     suspend operator fun invoke(property: Property) {

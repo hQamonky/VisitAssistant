@@ -15,6 +15,7 @@
             <option value="$PROJECT_DIR$/property" />
             <option value="$PROJECT_DIR$/property/property_data" />
             <option value="$PROJECT_DIR$/property/property_domain" />
+            <option value="$PROJECT_DIR$/property/property_presentation" />
             <option value="$PROJECT_DIR$/visit_assistant" />
             <option value="$PROJECT_DIR$/visit_assistant/visit_presentation" />
           </set>

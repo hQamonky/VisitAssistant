@@ -1,8 +1,8 @@
 package com.qmk.property_data.mapper
 
-import com.qmk.property_data.local.entity.*
-import com.qmk.property_domain.model.Location
-import com.qmk.property_domain.model.Neighborhood
+import com.qmk.property_data.local.entity.AnnexEntity
+import com.qmk.property_data.local.entity.PropertyEntity
+import com.qmk.property_data.local.entity.PropertyType
 import com.qmk.property_domain.model.property.Annex
 import com.qmk.property_domain.model.property.Apartment
 import com.qmk.property_domain.model.property.House
@@ -13,24 +13,7 @@ fun PropertyEntity.toProperty(): Property? {
         PropertyType.APARTMENT -> Apartment(
             id = propertyId,
             marketPrice = marketPrice,
-            location = location?.let { locationEntity ->
-                Location(
-                    id = locationEntity.locationId,
-                    streetNumber = locationEntity.streetNumber,
-                    streetName = locationEntity.streetName,
-                    neighborhood = locationEntity.neighborhood?.let { neighborhoodEntity ->
-                        Neighborhood(
-                            name = neighborhoodEntity.name,
-                            averagePricePerSquareMeter = neighborhoodEntity.averagePricePerSquareMeter
-                        )
-                    },
-                    postalCode = locationEntity.postalCode,
-                    city = locationEntity.city,
-                    country = locationEntity.country,
-                    latitude = locationEntity.latitude,
-                    longitude = locationEntity.longitude
-                )
-            },
+            location = location?.toLocation(),
             surface = surface,
             orientation = orientation,
             rooms = rooms?.map { it.toRoom() },
@@ -39,6 +22,7 @@ fun PropertyEntity.toProperty(): Property? {
             propertyTax = propertyTax,
             media = propertyMedia,
             notes = propertyNotes,
+            contacts = contacts?.map { it.toContact() },
             floor = floor,
             buildingFloors = buildingFloors,
             lift = lift,
@@ -47,24 +31,7 @@ fun PropertyEntity.toProperty(): Property? {
         PropertyType.HOUSE -> House(
             id = propertyId,
             marketPrice = marketPrice,
-            location = location?.let { locationEntity ->
-                Location(
-                    id = locationEntity.locationId,
-                    streetNumber = locationEntity.streetNumber,
-                    streetName = locationEntity.streetName,
-                    neighborhood = locationEntity.neighborhood?.let { neighborhoodEntity ->
-                        Neighborhood(
-                            name = neighborhoodEntity.name,
-                            averagePricePerSquareMeter = neighborhoodEntity.averagePricePerSquareMeter
-                        )
-                    },
-                    postalCode = locationEntity.postalCode,
-                    city = locationEntity.city,
-                    country = locationEntity.country,
-                    latitude = locationEntity.latitude,
-                    longitude = locationEntity.longitude
-                )
-            },
+            location = location?.toLocation(),
             surface = surface,
             orientation = orientation,
             rooms = rooms?.map { it.toRoom() },
@@ -73,6 +40,7 @@ fun PropertyEntity.toProperty(): Property? {
             propertyTax = propertyTax,
             media = propertyMedia,
             notes = propertyNotes,
+            contacts = contacts?.map { it.toContact() },
             floors = floors,
             landSurface = landSurface
         )
@@ -93,24 +61,7 @@ fun Property.toEntity(): PropertyEntity {
             propertyId = id,
             propertyType = PropertyType.APARTMENT,
             marketPrice = marketPrice,
-            location = location?.let {
-                LocationEntity(
-                    locationId = it.id,
-                    streetNumber = it.streetNumber,
-                    streetName = it.streetName,
-                    neighborhood = it.neighborhood?.let { neighborhood ->
-                        NeighborhoodEntity(
-                            name = neighborhood.name,
-                            averagePricePerSquareMeter = neighborhood.averagePricePerSquareMeter
-                        )
-                    },
-                    postalCode = it.postalCode,
-                    city = it.city,
-                    country = it.country,
-                    latitude = it.latitude,
-                    longitude = it.longitude
-                )
-            },
+            location = location?.toEntity(),
             surface = surface,
             orientation = orientation,
             rooms = rooms?.map { it.toRoomEntity() },
@@ -119,6 +70,7 @@ fun Property.toEntity(): PropertyEntity {
             propertyTax = propertyTax,
             propertyMedia = media,
             propertyNotes = notes,
+            contacts = contacts?.map { it.toEntity() },
             floor = floor,
             buildingFloors = buildingFloors,
             lift = lift,
@@ -130,24 +82,7 @@ fun Property.toEntity(): PropertyEntity {
             propertyId = id,
             propertyType = PropertyType.HOUSE,
             marketPrice = marketPrice,
-            location = location?.let {
-                LocationEntity(
-                    locationId = it.id,
-                    streetNumber = it.streetNumber,
-                    streetName = it.streetName,
-                    neighborhood = it.neighborhood?.let { neighborhood ->
-                        NeighborhoodEntity(
-                            name = neighborhood.name,
-                            averagePricePerSquareMeter = neighborhood.averagePricePerSquareMeter
-                        )
-                    },
-                    postalCode = it.postalCode,
-                    city = it.city,
-                    country = it.country,
-                    latitude = it.latitude,
-                    longitude = it.longitude
-                )
-            },
+            location = location?.toEntity(),
             surface = surface,
             orientation = orientation,
             rooms = rooms?.map { it.toRoomEntity() },
@@ -156,6 +91,7 @@ fun Property.toEntity(): PropertyEntity {
             propertyTax = propertyTax,
             propertyMedia = media,
             propertyNotes = notes,
+            contacts = contacts?.map { it.toEntity() },
             floor = null,
             buildingFloors = null,
             lift = null,

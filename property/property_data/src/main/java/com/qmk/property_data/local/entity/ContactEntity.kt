@@ -16,7 +16,7 @@ data class ContactEntity(
     var firstName: String? = null,
     var lastName: String? = null,
     var gender: Gender? = null,
-    var email: String? = null,
-    var phoneNumber: String? = null,
+    var contactEmail: String? = null,
+    var contactPhoneNumber: String? = null,
     @Embedded var agency: AgencyEntity? = null
 )
